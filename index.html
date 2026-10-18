@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#102a43" />
+  <meta name="description" content="WeatherWise — a clean, responsive live weather dashboard." />
+  <title>WeatherWise — Your Weather, Clearly</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-glow glow-one"></div>
+  <div class="page-glow glow-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="WeatherWise home">
+      <span class="brand-icon" aria-hidden="true">☀</span>
+      <span>Weather<span class="brand-light">Wise</span></span>
+    </a>
+    <div class="live-label"><span class="live-dot"></span> LIVE WEATHER</div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">YOUR DAY, FORECASTED</p>
+      <h1>Every forecast,<br><span>made clearer.</span></h1>
+      <p class="hero-copy">Real-time conditions and the days ahead, all in one calm little dashboard.</p>
+      <form class="search-form" id="search-form">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <label class="sr-only" for="city-input">Search city</label>
+        <input id="city-input" type="text" placeholder="Search a city, e.g. Kochi" autocomplete="off" required />
+        <button type="submit" id="search-button">Search <span aria-hidden="true">↗</span></button>
+      </form>
+      <button class="location-button" id="location-button" type="button">◎ Use my current location</button>
+      <p class="status" id="status" role="status" aria-live="polite">Search for a city to see its current weather.</p>
+    </section>
+
+    <section class="weather-layout" aria-label="Weather dashboard">
+      <article class="current-card card" id="current-card">
+        <div class="current-top">
+          <div>
+            <p class="section-kicker">CURRENT WEATHER</p>
+            <h2 id="place-name">Weather around you</h2>
+            <p class="date-line" id="local-date">Search for a location to begin</p>
+          </div>
+          <span class="weather-symbol" id="current-icon" aria-hidden="true">☀️</span>
+        </div>
+        <div class="temperature-row">
+          <div class="temperature" id="temperature">--<span>°C</span></div>
+          <div class="condition-block">
+            <p class="condition" id="condition">Waiting for a city</p>
+            <p class="feels-like" id="feels-like">Feels like --°</p>
+          </div>
+        </div>
+        <div class="current-divider"></div>
+        <div class="stats-grid">
+          <div class="stat"><span class="stat-icon">💧</span><div><span class="stat-label">Humidity</span><strong id="humidity">--%</strong></div></div>
+          <div class="stat"><span class="stat-icon">💨</span><div><span class="stat-label">Wind speed</span><strong id="wind">-- km/h</strong></div></div>
+          <div class="stat"><span class="stat-icon">🌡️</span><div><span class="stat-label">Feels like</span><strong id="feels-stat">--°C</strong></div></div>
+          <div class="stat"><span class="stat-icon">🌧️</span><div><span class="stat-label">Precipitation</span><strong id="precipitation">-- mm</strong></div></div>
+        </div>
+      </article>
+
+      <aside class="side-column">
+        <article class="highlight-card card">
+          <div class="highlight-top"><span class="section-kicker">TODAY'S OUTLOOK</span><span class="sparkle">✦</span></div>
+          <h3 id="outlook-title">A little weather insight</h3>
+          <p id="outlook-copy">Your forecast summary will appear here once you search for a city.</p>
+          <div class="high-low"><div><span>High</span><strong id="high">--°</strong></div><div><span>Low</span><strong id="low">--°</strong></div></div>
+        </article>
+        <article class="sun-card card">
+          <div class="sun-item"><span class="sun-emoji">🌅</span><div><span>Sunrise</span><strong id="sunrise">--:--</strong></div></div>
+          <div class="sun-rule"></div>
+          <div class="sun-item"><span class="sun-emoji">🌇</span><div><span>Sunset</span><strong id="sunset">--:--</strong></div></div>
+        </article>
+      </aside>
+    </section>
+
+    <section class="forecast-section">
+      <div class="section-heading">
+        <div><p class="section-kicker">PLAN AHEAD</p><h2>5-day forecast</h2></div>
+        <span class="forecast-note">The next few days, at a glance</span>
+      </div>
+      <div class="forecast-grid" id="forecast-grid">
+        <div class="forecast-placeholder">Search for a city to load the forecast.</div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span class="footer-brand"><span class="brand-icon small">☀</span> WeatherWise</span>
+      <span>Live weather data powered by Open-Meteo</span>
+      <span>Made for curious skies ☁</span>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
